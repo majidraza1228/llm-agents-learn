@@ -69,8 +69,8 @@ Comprehensive tutorials covering various RAG (Retrieval Augmented Generation) im
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- pip or conda for package management
+- Python 3.10 or higher (recommended: Python 3.11+)
+- pip 24.0 or higher (upgrade with: `pip install --upgrade pip`)
 - API keys for cloud-based models (OpenAI, Anthropic, Google, etc.)
 
 ### Quick Start
