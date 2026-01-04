@@ -77,7 +77,7 @@ with st.sidebar:
 
 col1, col2 = st.columns([3, 1])
 with col1:
-    repo = st.text_input("Repository", value="Shubhamsaboo/awesome-llm-apps", help="Format: owner/repo")
+    repo = st.text_input("Repository", value="your-username/your-repo", help="Format: owner/repo")
 with col2:
     query_type = st.selectbox("Query Type", [
         "Issues", "Pull Requests", "Repository Activity", "Custom"
@@ -166,7 +166,7 @@ if 'result' not in locals():
         <ol>
             <li>Enter your <strong>OpenAI API key</strong> in the sidebar (powers the AI agent)</li>
             <li>Enter your <strong>GitHub token</strong> in the sidebar</li>
-            <li>Specify a repository (e.g., Shubhamsaboo/awesome-llm-apps)</li>
+            <li>Specify a repository (e.g., your-username/your-repo)</li>
             <li>Select a query type or write your own</li>
             <li>Click 'Run Query' to see results</li>
         </ol>

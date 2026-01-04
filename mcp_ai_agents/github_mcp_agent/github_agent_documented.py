@@ -115,7 +115,7 @@ col1, col2 = st.columns([3, 1])
 with col1:
     repo = st.text_input(
         "Repository",  # Label for the input field
-        value="Shubhamsaboo/awesome-llm-apps",  # Default repository to analyze
+        value="majidraza1228/llm-agents-learn",  # Default repository to analyze
         help="Format: owner/repo"  # Tooltip explaining the required format
     )
 
@@ -315,7 +315,7 @@ if 'result' not in locals():
         <ol>
             <li>Enter your <strong>OpenAI API key</strong> in the sidebar (powers the AI agent)</li>
             <li>Enter your <strong>GitHub token</strong> in the sidebar</li>
-            <li>Specify a repository (e.g., Shubhamsaboo/awesome-llm-apps)</li>
+            <li>Specify a repository (e.g., majidraza1228/llm-agents-learn)</li>
             <li>Select a query type or write your own</li>
             <li>Click 'Run Query' to see results</li>
         </ol>

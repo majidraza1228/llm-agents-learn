@@ -17,7 +17,7 @@ This Streamlit app demonstrates an agentic Retrieval-Augmented Generation (RAG) 
 
 1. Clone the GitHub repository
 ```bash
-git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
+git clone https://github.com/majidraza1228/llm-agents-learn.git
 cd awesome-llm-apps/rag_tutorials/agentic_rag_embedding_gemma
 ```
 

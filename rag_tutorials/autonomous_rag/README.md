@@ -18,7 +18,7 @@ Features
 
 1. Clone the GitHub repository
 ```bash
-git clone https://github.com/Shubhamsaboo/awesome-llm-apps.git
+git clone https://github.com/majidraza1228/llm-agents-learn.git
 cd awesome-llm-apps/rag_tutorials/autonomous_rag
 ```
 
