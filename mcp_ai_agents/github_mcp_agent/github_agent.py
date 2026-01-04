@@ -1,11 +1,25 @@
 import asyncio
 import os
+import sys
 import streamlit as st
 from textwrap import dedent
 from agno.agent import Agent
 from agno.run.agent import RunOutput
 from agno.tools.mcp import MCPTools
 from mcp import StdioServerParameters
+
+# Add parent directory to path for utils import
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+
+try:
+    from utils.env_loader import load_env, get_api_key
+    # Load environment variables from .env file
+    load_env()
+except ImportError:
+    # Fallback if utils module is not available
+    from dotenv import load_dotenv
+    load_dotenv()
+    get_api_key = lambda key, required=False: os.getenv(key)
 
 st.set_page_config(page_title="🐙 GitHub MCP Agent", page_icon="🐙", layout="wide")
 
@@ -14,14 +28,32 @@ st.markdown("Explore GitHub repositories with natural language using the Model C
 
 with st.sidebar:
     st.header("🔑 Authentication")
-    
-    openai_key = st.text_input("OpenAI API Key", type="password",
-                              help="Required for the AI agent to interpret queries and format results")
+
+    # Try to load from environment first
+    env_openai_key = os.getenv("OPENAI_API_KEY", "")
+    env_github_token = os.getenv("GITHUB_TOKEN", "")
+
+    # Show loading status
+    if env_openai_key:
+        st.success(f"✓ OpenAI API Key loaded from .env")
+    if env_github_token:
+        st.success(f"✓ GitHub Token loaded from .env")
+
+    openai_key = st.text_input(
+        "OpenAI API Key",
+        value=env_openai_key if env_openai_key else "",
+        type="password",
+        help="Required for the AI agent to interpret queries and format results. Can be set in .env file as OPENAI_API_KEY"
+    )
     if openai_key:
         os.environ["OPENAI_API_KEY"] = openai_key
-    
-    github_token = st.text_input("GitHub Token", type="password", 
-                                help="Create a token with repo scope at github.com/settings/tokens")
+
+    github_token = st.text_input(
+        "GitHub Token",
+        value=env_github_token if env_github_token else "",
+        type="password",
+        help="Create a token with repo scope at github.com/settings/tokens. Can be set in .env file as GITHUB_TOKEN"
+    )
     if github_token:
         os.environ["GITHUB_TOKEN"] = github_token
     

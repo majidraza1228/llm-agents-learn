@@ -75,7 +75,25 @@ Comprehensive tutorials covering various RAG (Retrieval Augmented Generation) im
 
 ### Quick Start
 
-1. **Navigate to a project directory**
+1. **Set up environment variables**
+
+   ```bash
+   # Copy the example .env file
+   cp .env.example .env
+
+   # Edit .env and add your API keys
+   # Never commit the .env file to git!
+   ```
+
+   The `.env` file should contain your API keys:
+   ```bash
+   OPENAI_API_KEY=your_openai_key_here
+   GITHUB_TOKEN=your_github_token_here
+   GOOGLE_API_KEY=your_google_key_here
+   # ... and other keys as needed
+   ```
+
+2. **Navigate to a project directory**
 
    ```bash
    cd mcp_ai_agents/github_mcp_agent
@@ -83,15 +101,32 @@ Comprehensive tutorials covering various RAG (Retrieval Augmented Generation) im
    cd rag_tutorials/local_rag_agent
    ```
 
-2. **Install dependencies**
+3. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Follow project-specific instructions**
+4. **Run the application**
+
+   Most projects use Streamlit:
+   ```bash
+   streamlit run github_agent.py
+   # or
+   streamlit run local_rag_agent.py
+   ```
+
+5. **Follow project-specific instructions**
 
    Each project has its own README with detailed setup instructions, configuration steps, and usage examples.
+
+### 🔐 Security Best Practices
+
+- **Never commit `.env` files** - They contain sensitive API keys
+- **Use `.env.example`** - Template for required environment variables
+- **Rotate API keys regularly** - For enhanced security
+- **Use environment-specific files** - `.env.development`, `.env.production`
+- **Check `.gitignore`** - Ensures `.env` files are excluded from git
 
 ## 🎓 Learning Path
 
